@@ -1151,7 +1151,7 @@ test('worker 平台适配层：netlifyHandler / vercelHandler 映射为标准响
 
   const captured = { status: null, headers: {}, body: null };
   await vercelHandler(
-    { url: 'http://localhost/favicon.ico', method: 'GET', headers: { 'x-forwarded-for': '203.0.113.7' } },
+    { url: '/favicon.ico?source=test', method: 'GET', headers: { host: 'localhost', 'x-forwarded-for': '203.0.113.7' } },
     {
       status(value) { captured.status = value; },
       setHeader(key, value) { captured.headers[key] = value; },

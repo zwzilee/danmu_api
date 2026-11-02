@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [
     {
-      "src": "danmu_api/worker.js",
+      "src": "danmu_api/vercel.js",
       "use": "@vercel/node"
     }
   ],

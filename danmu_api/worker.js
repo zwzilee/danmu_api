@@ -840,7 +840,8 @@ export async function vercelHandler(req, res) {
   // 从请求头获取真实 IP
   const clientIp = req.headers['x-forwarded-for'] || req.connection.remoteAddress || 'unknown';
 
-  const cfReq = new Request(req.url, {
+  const requestUrl = new URL(req.url, `https://${req.headers.host || 'localhost'}`);
+  const cfReq = new Request(requestUrl, {
     method: req.method,
     headers: req.headers,
     body:
